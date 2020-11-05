@@ -1,0 +1,15 @@
+#logo-new {
+  background-color: #2f89fc;
+  text-align: center;
+}
+
+.buffer {
+  height: 80px;
+}
+
+.title {
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  padding: 5px 50px;
+}
