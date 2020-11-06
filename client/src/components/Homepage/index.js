@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component,useContext } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
@@ -15,6 +15,7 @@ import Paper from "@material-ui/core/Paper";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import SideNavbar from "../SideNavbar";
+import {firebaseAuth} from '../provider/AuthProvider';
 
 const rawData = [
   {
@@ -238,8 +239,9 @@ function createRows(rawData) {
 }
 console.log(rows);
 
-class Homepage extends Component {
-  render() {
+const Homepage = (props) => {
+
+    const {handleSignout,} = useContext(firebaseAuth);
     return (
       <div className="wrapper d-flex align-items-stretch">
         <SideNavbar />
@@ -265,9 +267,9 @@ class Homepage extends Component {
             </Table>
           </TableContainer>
         </div>
+        <button onClick={handleSignout}>sign out </button>
       </div>
     );
-  }
 }
 
 export default Homepage;

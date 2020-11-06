@@ -1,8 +1,9 @@
-import app from "firebase/app";
+import firebase from "firebase";
+import "firebase/app";
 import 'firebase/auth';
 
 
-const config = {
+const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
   databaseURL: process.env.REACT_APP_DATABASE_URL,
@@ -14,17 +15,13 @@ const config = {
 
 
 
-class Firebase {
-  constructor() {
-    app.initializeApp(config);
-    this.auth = app.auth();
-  }
 
-  doCreateUserWithEmailAndPassword = (email, password) =>
-      this.auth.createUserWithEmailAndPassword(email, password);
+    firebase.initializeApp(firebaseConfig);
+firebase.auth()
 
-  doSignInWithEmailAndPassword = (email, password) =>
-      this.auth.signInWithEmailAndPassword(email, password);
+
+
+
+export default {
+  firebaseConfig,
 }
-
-export default Firebase;
